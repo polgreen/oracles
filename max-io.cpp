@@ -13,8 +13,17 @@ int max(int x, int y)
 
 int main(int argc, const char *argv[])
 {
-	assert(argc==3);
-	assert(isdigit(*argv[1]) && isdigit(*argv[2]));
+
+	if(argc!=3 || !(isdigit(*argv[1]) && isdigit(*argv[2])))
+	{
+		std::cout<<"This is an input-output oracle for the function\n"
+		<< "(synth-fun max ((x Int)(y Int))(z Int)).";
+		std::cout<<"The oracle takes two input arguments: a value for x and y. \n"
+		<< "It returns the correct assignment for z "
+		<< "as an SMTlib model.\n";
+		return 1;
+	}
+
 	int x;
 	int y;
 

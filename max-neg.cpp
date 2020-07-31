@@ -25,6 +25,16 @@ int max(int x, int y)
 
 int main(int argc, const char *argv[])
 {
+	if(argc!=1)
+	{
+		std::cout<<"This is a negative witness oracle for the function\n"
+		<< "(synth-fun max ((x Int)(y Int))(z Int)).";
+		std::cout<<"The oracle takes no input arguments and \n"
+		<< "returns a single negative witness assignment to x, y and z\n"
+		<< "as an SMTlib model.\n";
+		return 1;
+	}
+
 	srand (time(NULL));
 	assert(argc==1);
 	int x = rand();
