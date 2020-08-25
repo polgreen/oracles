@@ -23,6 +23,7 @@ int main(int argc, const char *argv[])
 		<< "as an SMTlib model.\n";
 		return 1;
 	}
+	srand (time(NULL));
 	int x = rand();
 	int y = rand();
 

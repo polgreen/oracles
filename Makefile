@@ -1,12 +1,8 @@
-all: max-io max-neg max-pos max-corr
+SUBDIRS := max_example PBE_example
 
-max-io: max-io.cpp
+all: $(SUBDIRS)
+$(SUBDIRS):
+	$(MAKE) -C $@
 
-max-neg: max-neg.cpp
+.PHONY: all $(SUBDIRS)
 
-max-pos: max-pos.cpp
-
-max-corr: max-corr.cpp	
-
-clean :
-	rm max-io max-neg max-pos max-corr

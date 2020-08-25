@@ -36,7 +36,6 @@ int main(int argc, const char *argv[])
 	}
 
 	srand (time(NULL));
-	assert(argc==1);
 	int x = rand();
 	int y = rand();
 
