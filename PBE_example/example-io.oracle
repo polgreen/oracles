@@ -1,0 +1,14 @@
+oracle-type: (declare-oracle example-io ((x (_ BitVec 64)))(z (_ BitVec 64)) :q-io)
+
+input: single constant of type (BitVec 64) in hex
+output: assignment to output of type (BitVec 64)
+
+
+example:
+
+user$ ./example-io FFFFFFFFFFFFFFFF
+(model
+(define-fun z () (_ BitVec 64) (_ b4294967295 64)  ))
+
+
+

@@ -1,0 +1,15 @@
+oracle-type: (declare-oracle example-neg ()((x (_ BitVec 64))(z(_ BitVec 64))) :q-neg)
+
+inputs: none
+outputs: assignment to input x and output z of type (BitVec 64), that is NOT permitted by spec
+
+
+example:
+
+$ ./example-neg
+(model
+(define-fun x () (_ BitVec 64) (_ b1218298525 64))
+(define-fun z () (_ BitVec 64) (_ b1834219177 64)))
+
+
+
