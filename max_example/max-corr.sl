@@ -17,15 +17,15 @@
 
 (declare-var x Int)
 (declare-var y Int)
-(declare-var myoracle (-> Int Int Int))
+(declare-var myoracle (-> (-> Int Int Int) Bool))
 
 (constraint (>= (max x y) x))
 (constraint (>= (max x y) y))
-(constraint (= (max 10 5) (myoracle 10 5)))
-(constraint (= (max 7 9)(myoracle 7 9)))
+(constraint (myoracle max))
 
-(oracle-constraint max-corr ((x Int)(y Int))((z Int))
-(= (myoracle x y) z )
+
+(oracle-constraint max-corr ((f (-> Int Int Int))) ((z Bool))
+(= (myoracle f) z )
 )
 
 
