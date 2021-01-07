@@ -1,8 +1,6 @@
 (set-logic LIA)
 
-(declare-oracle max-io ((x Int) (y Int)) ((z Int)) :q-io)
-
-(synth-fun max ((x Int) (y Int)) (z Int)
+(synth-fun max ((x Int) (y Int)) Int
     ((Start Int (x
                  y
                  0
@@ -15,17 +13,20 @@
                       (not StartBool)
                       (<=  Start Start)
                       (=   Start Start)
-                      (>=  Start Start))))
-
-    (oracle-interface (max-io x y)))
+                      (>=  Start Start)))))
 
 (declare-var x Int)
 (declare-var y Int)
+(declare-var myoracle (-> Int Int Int))
 
 (constraint (>= (max x y) x))
 (constraint (>= (max x y) y))
-(constraint (or (= x (max x y))
-				(= y (max x y))))
+(constraint (= (max 10 5) (myoracle 10 5)))
+(constraint (= (max 7 9)(myoracle 7 9)))
+
+(oracle-constraint max-io ((x Int)(y Int))((z Int))
+(= (myoracle x y) z )
+)
 
 
 (check-synth)
