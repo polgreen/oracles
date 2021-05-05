@@ -1,6 +1,19 @@
-# Oracles for synthesis
+# Oracles 
+This repository contains sample oracles for synthesis modulo oracles and satisfiability modulo oracles
 
-This repository contains some example oracles for synthesis which could be used to synthesise a function that computes the maximum of 2 numbers, i.e., to solve this SyGuS problem
+## Building the oracles
+
+- Download Eigen and CBMC
+- Edit Config.inc to include the correct paths to Eigen and CBMC
+- Compile CBMC
+- run Make
+
+## number_oracles
+
+
+## max-example
+
+Examples which could be used to synthesise a function that computes the maximum of 2 numbers, i.e., to solve this SyGuS problem
 
 ~~~
 (set-logic LIA)
@@ -16,12 +29,16 @@ This repository contains some example oracles for synthesis which could be used 
 (check-synth)
 ~~~
 
-To build the oracles run 
-~~~
-Make
-~~~
+## image oracles
 
-The following oracles are created:
-- an input-ouput oracle: max-io, which is called with the command `max-io input1 input2` where `input1` and `input2` are the inputs to the `max` function. It will return a value for `z`, the output.
-- a positive witness oracle: max-pos, which is called with the command `max-pos`. It will return a positive example for `x`, `y` and `z`.
-- a negative witness oracle: max-neg, which is called with the command `max-neg`. It will return a negative example for `x`, `y` and `z`.
+## matrices
+
+## prime_oracles
+
+# Specs
+The repository also contains sample SMTO and Synthesis files. 
+
+- SMTO files with the extension '.smt2' can be run with Delphi 
+- SMT files with the extension no-oracle.smt2 can be run with any SMT solver
+- synthesis files with the extension '.sl' can be run with Delphi
+- synthesis files with the extension 'no-oracle.sl' can be run with any SyGuS solver
