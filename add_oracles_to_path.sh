@@ -1,0 +1,1 @@
+export PATH=$PATH:$(pwd)/image_oracles:$(pwd)/max_example:$(pwd)/number_oracles:$(pwd)/prime_oracle
