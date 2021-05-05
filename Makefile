@@ -1,4 +1,4 @@
-SUBDIRS := max_example PBE_example
+SUBDIRS := max_example prime_oracle number_oracles image_oracles
 
 all: $(SUBDIRS)
 $(SUBDIRS):
