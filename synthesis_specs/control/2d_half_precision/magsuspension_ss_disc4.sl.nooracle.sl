@@ -88,24 +88,24 @@
 ; (declare-var x1step3 (_ FloatingPoint 8 24))
 
 
-; (define-fun unroll ((x0 (_ FloatingPoint 8 24)) (x1 (_ FloatingPoint 8 24))(x0step1 (_ FloatingPoint 8 24) ) (x1step1 (_ FloatingPoint 8 24)) ) Bool
-; (and
-; (= x0step1 (fp.add roundNearestTiesToEven (fp.mul roundNearestTiesToEven AminusBK00 x0) (fp.mul roundNearestTiesToEven AminusBK01 x1)))
-; (= x1step1 (fp.add roundNearestTiesToEven (fp.mul roundNearestTiesToEven AminusBK10 x0) (fp.mul roundNearestTiesToEven AminusBK11 x1)))
-; ))
+(define-fun unroll ((x0 (_ FloatingPoint 8 24)) (x1 (_ FloatingPoint 8 24))(x0step1 (_ FloatingPoint 8 24) ) (x1step1 (_ FloatingPoint 8 24)) ) Bool
+(and
+(= x0step1 (fp.add roundNearestTiesToEven (fp.mul roundNearestTiesToEven AminusBK00 x0) (fp.mul roundNearestTiesToEven AminusBK01 x1)))
+(= x1step1 (fp.add roundNearestTiesToEven (fp.mul roundNearestTiesToEven AminusBK10 x0) (fp.mul roundNearestTiesToEven AminusBK11 x1)))
+))
 
-; ; states are safe
-; (define-fun bounds_check ((x0 (_ FloatingPoint 8 24)) (x1 (_ FloatingPoint 8 24))) Bool
-; 	(and (fp.lt x0 upper) (fp.lt x1 upper) (fp.gt x0 lower)(fp.gt x1 lower)))
+; states are safe
+(define-fun bounds_check ((x0 (_ FloatingPoint 8 24)) (x1 (_ FloatingPoint 8 24))) Bool
+	(and (fp.lt x0 upper) (fp.lt x1 upper) (fp.gt x0 lower)(fp.gt x1 lower)))
 
-; ; states are corner cases of init box
-; (define-fun init ((x0 (_ FloatingPoint 8 24)) (x1 (_ FloatingPoint 8 24))) Bool
-; 	(and (or (= x0 init_upper) (= x0 init_lower))(or (= x1 init_upper)(= x1 init_lower))))
+; states are corner cases of init box
+(define-fun init ((x0 (_ FloatingPoint 8 24)) (x1 (_ FloatingPoint 8 24))) Bool
+	(and (or (= x0 init_upper) (= x0 init_lower))(or (= x1 init_upper)(= x1 init_lower))))
 
 
-; (constraint (=> (and (init x0 x1)(unroll x0 x1 x0step1 x1step1))(bounds_check x0step1 x1step1)))
-; (constraint (=> (and (init x0 x1)(unroll x0 x1 x0step1 x1step1)(unroll x0step1 x1step1 x0step2 x1step2) )(bounds_check x0step2 x1step2)))
-; (constraint (=> (and (init x0 x1)(unroll x0 x1 x0step1 x1step1)(unroll x0step1 x1step1 x0step2 x1step2)(unroll x0step2 x1step2 x0step3 x1step3)  )(bounds_check x0step3 x1step3)))
+(constraint (=> (and (init x0 x1)(unroll x0 x1 x0step1 x1step1))(bounds_check x0step1 x1step1)))
+(constraint (=> (and (init x0 x1)(unroll x0 x1 x0step1 x1step1)(unroll x0step1 x1step1 x0step2 x1step2) )(bounds_check x0step2 x1step2)))
+(constraint (=> (and (init x0 x1)(unroll x0 x1 x0step1 x1step1)(unroll x0step1 x1step1 x0step2 x1step2)(unroll x0step2 x1step2 x0step3 x1step3)  )(bounds_check x0step3 x1step3)))
 
 
 ; ### assert unrolling is safe using reals ###
