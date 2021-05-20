@@ -32,9 +32,9 @@ g++ $f-ref.cpp -o $f-ref
 echo "(set-logic BV)
 (synth-fun f ((x (_ BitVec 64))) (_ BitVec 64)
     ((Start (_ BitVec 64)))
-    ((Start (_ BitVec 64) (#x0000000000000000 #x0000000000000001 x (bvnot Start) (bvshl Start #x0000000000000001) (bvlshr Start #x0000000000000001) (bvlshr Start #x0000000000000004) (bvlshr Start #x0000000000000010) (bvand Start Start) (bvor Start Start) (bvxor Start Start) (bvadd Start Start) (ite (= Start #x0000000000000001) Start Start)))))\n" > $f.new.sl
+    ((Start (_ BitVec 64) (#x0000000000000000 #x0000000000000001 x (bvnot Start) (bvshl Start #x0000000000000001) (bvlshr Start #x0000000000000001) (bvlshr Start #x0000000000000004) (bvlshr Start #x0000000000000010) (bvand Start Start) (bvor Start Start) (bvxor Start Start) (bvadd Start Start) (ite (= Start #x0000000000000001) Start Start)))))" > $f.new.sl
 
-echo "(declare-var x (_ BitVec 64))\n
+echo "(declare-var x (_ BitVec 64))
 (declare-oracle-fun rand rand ((_ BitVec 64)) (_ BitVec 64))
 (declare-oracle-fun reffunction">> $f.new.sl 
 echo $f-ref >> $f.new.sl 
