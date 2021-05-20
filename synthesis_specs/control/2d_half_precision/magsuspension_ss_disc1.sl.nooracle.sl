@@ -77,15 +77,15 @@
 ; ####  assert unrolling is safe using floating point####
 
 ; initial states
-; (declare-var x0  (_ FloatingPoint 8 24))
-; (declare-var x1  (_ FloatingPoint 8 24))
-; ; step states
-; (declare-var x0step1  (_ FloatingPoint 8 24))
-; (declare-var x1step1  (_ FloatingPoint 8 24))
-; (declare-var x0step2  (_ FloatingPoint 8 24))
-; (declare-var x1step2 (_ FloatingPoint 8 24))
-; (declare-var x0step3 (_ FloatingPoint 8 24))
-; (declare-var x1step3 (_ FloatingPoint 8 24))
+(declare-var x0  (_ FloatingPoint 8 24))
+(declare-var x1  (_ FloatingPoint 8 24))
+; step states
+(declare-var x0step1  (_ FloatingPoint 8 24))
+(declare-var x1step1  (_ FloatingPoint 8 24))
+(declare-var x0step2  (_ FloatingPoint 8 24))
+(declare-var x1step2 (_ FloatingPoint 8 24))
+(declare-var x0step3 (_ FloatingPoint 8 24))
+(declare-var x1step3 (_ FloatingPoint 8 24))
 
 
 (define-fun unroll ((x0 (_ FloatingPoint 8 24)) (x1 (_ FloatingPoint 8 24))(x0step1 (_ FloatingPoint 8 24) ) (x1step1 (_ FloatingPoint 8 24)) ) Bool
