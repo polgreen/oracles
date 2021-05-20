@@ -2,7 +2,7 @@
 
 ;  a prime number that is one more than a square number
 (declare-oracle-fun isSquare issquare (Int ) Bool)
-(declare-oracle-fun isPrime primes (Int ) Bool)
+(declare-oracle-fun isPrime isprime (Int ) Bool)
 
 
 (declare-fun n () Int)
