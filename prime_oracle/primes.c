@@ -75,27 +75,27 @@ char **argv;
     if (p > high) break;
     found_a_prime=1;
 
-    for (i = 0;u;++i) {
-      u += digits[i];
-      if (u >= 200) {
-        digits[i] = u % 10;
-        u = u / 10;
-      }
-      else {
-	digits[i] = mod10[u];
-	u = div10[u];
-      }
-    }
-    if (i > len) len = i;
+ //    for (i = 0;u;++i) {
+ //      u += digits[i];
+ //      if (u >= 200) {
+ //        digits[i] = u % 10;
+ //        u = u / 10;
+ //      }
+ //      else {
+	// digits[i] = mod10[u];
+	// u = div10[u];
+ //      }
+ //    }
+ //    if (i > len) len = i;
 
-    for (i = len - 1;i >= 0;--i)
-      putchar('0' + digits[i]);
-    putchar('\n');
+ //    for (i = len - 1;i >= 0;--i)
+ //      putchar('0' + digits[i]);
+ //    putchar('\n');
   }
   if(!found_a_prime)
-    printf("not prime\n");
+    printf("false\n");
   else
-    printf("found a prime\n");
+    printf("true\n");
 
   exit(0);
 }
