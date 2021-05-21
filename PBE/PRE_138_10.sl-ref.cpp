@@ -16,7 +16,7 @@ int main(int argc, const char *argv[])
 		return 1;
 	}
 
-	unsigned int a;
+	unsigned long int a;
 
 	// arg 1 is x
 	std::istringstream ssA(argv[1]);
