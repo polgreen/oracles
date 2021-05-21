@@ -43,8 +43,8 @@
 (define-fun lower () (_ FloatingPoint 8 24) ((_ to_fp 8 24) roundNearestTiesToEven lowerr))
 (define-fun init_upper () (_ FloatingPoint 8 24) ((_ to_fp 8 24) roundNearestTiesToEven init_upperr))
 (define-fun init_lower () (_ FloatingPoint 8 24) ((_ to_fp 8 24) roundNearestTiesToEven init_lowerr))
-(define-fun inputupper () (_ FloatingPoint 8 24) ((_ to_fp 8 24) roundNearestTiesToEven 1000.0))
-(define-fun inputlower () (_ FloatingPoint 8 24) ((_ to_fp 8 24) roundNearestTiesToEven (- 1000.0)))
+(define-fun inputupper () (_ FloatingPoint 8 24) ((_ to_fp 8 24) roundNearestTiesToEven 10.0))
+(define-fun inputlower () (_ FloatingPoint 8 24) ((_ to_fp 8 24) roundNearestTiesToEven (- 10.0)))
 
 ; controller
 (synth-fun K0 () (_ FloatingPoint 8 24))
