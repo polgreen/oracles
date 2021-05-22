@@ -13,3 +13,7 @@ The rest of this file is a list of systypes where various versions of
 primegen have been reported to work.
 
 0.97: bsd.os-2.0.1-:i386-:-:pentium-:-
+
+### Building the oracle: 
+run make
+The oracle is the binary called "primes"
