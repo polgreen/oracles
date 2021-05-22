@@ -1,39 +1,21 @@
 # Oracles 
-This repository contains sample oracles for synthesis modulo oracles and satisfiability modulo oracles
+This repository contains sample oracles for synthesis modulo oracles and satisfiability modulo oracles. These problems can be solved by https://github.com/polgreen/delphi
 
 ## Building the oracles
 
-- Download Eigen and CBMC
-- Edit Config.inc to include the correct paths to Eigen and CBMC
-- Compile CBMC
-- run Make
+You will need Eigen, CBMC, and gcc/g++.
 
-## number_oracles
+Build instructions for oracles are contained within each directory. All oracles needed to be added to $PATH for Delphi to work. 
 
+### number_oracles
 
-## max-example
+### image oracles
 
-Examples which could be used to synthesise a function that computes the maximum of 2 numbers, i.e., to solve this SyGuS problem
+### matrices
 
-~~~
-(set-logic LIA)
+### prime_oracles
 
-(synth-fun max ((x Int) (y Int)) Int )
-
-(declare-var x Int)
-(declare-var y Int)
-
-(constraint (>= (max2 x y) x))
-(constraint (>= (max2 x y) y))
-(constraint (or (= x (max2 x y)) (= y (max2 x y))))
-(check-synth)
-~~~
-
-## image oracles
-
-## matrices
-
-## prime_oracles
+### control oracles
 
 # Specs
 The repository also contains sample SMTO and Synthesis files. 
