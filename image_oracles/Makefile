@@ -23,21 +23,21 @@ include $(CPROVER_DIR)/src/common
 
 CLEANFILES = smt2c$(EXEEXT) sin_oracle$(EXEEXT) cos_oracle$(EXEEXT) sin_oracle8bits$(EXEEXT) cos_oracle8bits$(EXEEXT) stb_image$(OBJEXT) 
 
-all: smt2c$(EXEEXT) sin_oracle$(EXEEXT) cos_oracle$(EXEEXT) sin_oracle8bits$(EXEEXT) cos_oracle8bits$(EXEEXT) stb_image$(OBJEXT) 
+all: smt2c$(EXEEXT)  stb_image$(OBJEXT) 
 
-stb_image$(OBJEXT): stb_image.c stb_image.h
-	$(CC) -c stb_image.c
+#stb_image$(OBJEXT): stb_image.c stb_image.h
+#	$(CC) -c stb_image.c
 
-sin_oracle$(EXEEXT): sin_oracle.c
-	$(CC) $< -o $@
+#sin_oracle$(EXEEXT): sin_oracle.c
+#	$(CC) $< -o $@
 
-sin_oracle8bits$(EXEEXT): sin_oracle8bits.c
-	$(CC) $< -o $@
- 
-cos_oracle$(EXEEXT): cos_oracle.c
-	$(CC) $< -o $@
-cos_oracle8bits$(EXEEXT): cos_oracle8bits.c
-	$(CC) $< -o $@
+#sin_oracle8bits$(EXEEXT): sin_oracle8bits.c
+#	$(CC) $< -o $@
+ #
+#cos_oracle$(EXEEXT): cos_oracle.c
+#	$(CC) $< -o $@
+#cos_oracle8bits$(EXEEXT): cos_oracle8bits.c
+#	$(CC) $< -o $@
 
 
 
