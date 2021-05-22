@@ -1,8 +1,0 @@
-Start OGIS
-SYNTH iteration 1
-Got solution f -> 0
-VERIFY iteration 1
-Verification passed
-SOLUTION:
-f  =  (_ bv0 64)
-        0.34 real         0.07 user         0.04 sys
