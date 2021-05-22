@@ -1,3 +1,7 @@
 ## CONTROL SPECS
 
-Benchmarks with the extension oracle.sl use the oracle in control_oracles. Benchmarks with the extension nooracle.sl use a pure SMT encoding
+These folders contain the following files:
+
+.sl.oracle.sl - control specs that use oracles
+.sl.nooracle.sl - control specs with a pure SMT encoding
+.sl - just the declaration for the LTI system
