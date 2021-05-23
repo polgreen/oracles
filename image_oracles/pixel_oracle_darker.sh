@@ -12,10 +12,10 @@ void *malloc(unsigned long);
 
 unsigned char target(unsigned char pixel)
 {
-  if(pixel < 200)
+ if(pixel < 200)
     return pixel + 50;
   else
-  return pixel;   // invert
+    return pixel;   // invert
 }
 
 int main()
