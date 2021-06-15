@@ -1,0 +1,1 @@
+export PATH=$PATH:$(pwd)/PBE:$(pwd)/image_oracles:$(pwd)/control_oracle:$(pwd)/number_oracles:$(pwd)/prime_oracle
