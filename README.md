@@ -6,6 +6,12 @@ This repository contains sample oracles for synthesis modulo oracles and satisfi
 You will need Eigen, CBMC, and gcc/g++.
 Build instructions for oracles are contained within each directory. All oracles needed to be added to $PATH for Delphi to work. 
 
+To build all the oracles
+- edit config.inc to include the correct directory for CBMC
+- edit build_all_oracles.sh to give the correct PATH_TO_EIGEN
+- run build_all_oracles.sh
+- add all oracles to your path by running 'source add_to_path.sh'
+
 ### Oracles
 - number_oracles: Contains the issquare and istriangle oracle used in maths_specs
 - prime_oracles: Contains the isprime oracle used in maths_specs
