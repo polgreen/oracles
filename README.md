@@ -10,7 +10,7 @@ To build all the oracles
 - edit config.inc to include the correct directory for CBMC
 - edit build_all_oracles.sh to give the correct PATH_TO_EIGEN
 - run build_all_oracles.sh
-- add all oracles to your path by running 'source add_to_path.sh'
+- add all oracles to your path by running `source add_to_path.sh`
 
 ### Oracles
 - number_oracles: Contains the issquare and istriangle oracle used in maths_specs
@@ -32,3 +32,17 @@ The files are named as follows:
 
 In SyMo mode Delphi supports an extension of SyGuS-IF detailed here: https://github.com/SyGuS-Org/docs
 In SMTO mode Delphi supports quantifier-free SMTLIB (with incomplete support for Reals/Strings) plus the syntax for declare-oracle-fun as described in the above document. 
+
+### Running Delphi on examples
+To run these examples, you will first need to:
+- install Delphi https://github.com/polgreen/delphi
+- Compile the oracles (as described above)
+- Add the oracles to your path (as described above)
+
+To run Delphi on an SMTO file:
+
+`delphi maths_specs/prime.oracle.smt2`
+
+To run Delphi on a SyMo file:
+
+`delphi image_specs/image_processing_darker.oracle.sl`
