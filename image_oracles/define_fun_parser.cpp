@@ -52,7 +52,7 @@ public:
       throw error("expected a symbol after define-fun");
 
     // save the renaming map
-    renaming_mapt old_renaming_map = renaming_map;
+    // renaming_mapt old_renaming_map = renaming_map;
 
     define_fun_resultt result;
 
@@ -65,7 +65,6 @@ public:
     expand_let_expressions(result.body);
 
     // restore renamings
-    std::swap(renaming_map, old_renaming_map);
 
     // check type of body
     if(signature.type.id() == ID_mathematical_function)
