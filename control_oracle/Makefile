@@ -13,11 +13,11 @@ OBJ+= $(CPROVER_DIR)/src/ansi-c/ansi-c$(LIBEXT) \
       $(CPROVER_DIR)/src/analyses/dirty$(OBJEXT) \
       $(CPROVER_DIR)/src/util/util$(LIBEXT)
 
-INCLUDES= -I $(CPROVER_DIR)/src  -I /Users/elipol/eigen -I ..
+INCLUDES= -I $(CPROVER_DIR)/src  -I $(EIGEN_DIR) -I ..
 
 LIBS =
 
-include ../config.inc
+include config.inc
 include $(CPROVER_DIR)/src/config.inc
 include $(CPROVER_DIR)/src/common
 
