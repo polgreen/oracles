@@ -1,6 +1,6 @@
 ### Control Oracle
 
-Dependencies: Download EIGEN:
+Download EIGEN:
 
 https://eigen.tuxfamily.org/index.php?title=Main_Page
 
