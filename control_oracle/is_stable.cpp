@@ -2,57 +2,44 @@
 #include <Eigen/Dense>
 #include <Eigen/Eigenvalues> 
 #include <complex>
+#include <string>
+#include "../utility_parser/utility_parser.h"
+#include <util/cmdline.h>
 
+#define CBMC_ORACLE_OPTIONS ""
 
+void help(std::ostream &out)
+{
+  out << "no help yet\n";
+}
 
 int main(int argc, const char *argv[])
 {
+	cmdlinet cmdline;
+  if(cmdline.parse(argc, argv, CBMC_ORACLE_OPTIONS))
+  {
+    std::cerr << "Usage error\n";
+    help(std::cerr);
+    return 1;
+  }
 
-	if(argc!=5)
-	{
-		std::cout<<"Expected 4 numeric entries to a 2x2 matrix"<<std::endl;
-		return 1;
-	}
+	std::vector<double> inputs;
 
-	double x00;
-	double x01;
-	double x10;
-	double x11;
+  for(const auto &arg : cmdline.args)
+  {
+    std::istringstream arg_stream(arg);
+    auto arg_parsed = float2double(arg_stream);
+    inputs.push_back(arg_parsed);
+  }
 
-	// arg 1 is x
-	std::istringstream ssX(argv[1]);
-	if(!(ssX >> x00))
-	{
-		std::cout<<"false"<<std::endl;
-		return 10;
-	}
-
-	std::istringstream ssY(argv[2]);
-	if(!(ssY >> x01))
-	{
-		std::cout<<"false"<<std::endl;
-		return 10;
-	}
-
-	std::istringstream ssX1(argv[3]);
-	if(!(ssX1 >> x10))
-	{
-		std::cout<<"false"<<std::endl;
-		return 10;
-	}
-
-	std::istringstream ssY1(argv[4]);
-	if(!(ssY1 >> x11))
-	{
-		std::cout<<"false"<<std::endl;
-		return 10;
-	}
+  if(inputs.size()!=4)
+    std::cout<<"Expected 4 numeric entries to a 2x2 matrix, got " << inputs.size()<<" inputs "<<std::endl;
 
 	Eigen::MatrixXd m(2,2);
-	m(0,0)=x00;
-	m(0,1)=x01;
-	m(1,0)=x10;
-	m(1,1)=x11;
+	m(0,0)=inputs[0];
+	m(0,1)=inputs[1];
+	m(1,0)=inputs[2];
+	m(1,1)=inputs[3];
 
 	
 	Eigen::EigenSolver<Eigen::MatrixXd> es(m);
