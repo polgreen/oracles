@@ -4,7 +4,9 @@ Dependencies: Download EIGEN
 https://eigen.tuxfamily.org/index.php?title=Main_Page
 
 To build:
-~~~
-g++ -I /path/to/eigen is_stable.cpp -o isstable
-g++ -I /path/to/eigen is_stable3x3.cpp -o isstable3
-~~~
+modify the paths in config.inc
+run make
+
+The CBMC version used is: 7536953d96c72d4886494c3ce4b48495c049e6e3
+https://github.com/polgreen/cbmc/tree/SyMO
+
