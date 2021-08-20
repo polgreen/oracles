@@ -21,11 +21,11 @@ include config.inc
 include $(CPROVER_DIR)/src/config.inc
 include $(CPROVER_DIR)/src/common
 
-CLEANFILES = is_stable$(EXEEXT) 
-all: is_stable$(EXEEXT) 
+CLEANFILES = isstable$(EXEEXT) isstable3x3$(EXEEXT) isstable4x4$(EXEEXT)
+all: isstable$(EXEEXT) 
 
-#stb_image$(OBJEXT): stb_image.c stb_image.h
-#	$(CC) -c stb_image.c
+
+
 
 #sin_oracle$(EXEEXT): sin_oracle.c
 #	$(CC) $< -o $@
@@ -42,5 +42,5 @@ all: is_stable$(EXEEXT)
 
 ###############################################################################
 
-is_stable$(EXEEXT): $(OBJ)
+isstable$(EXEEXT): $(OBJ)
 	$(LINKBIN)
