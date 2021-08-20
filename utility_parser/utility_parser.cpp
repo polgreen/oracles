@@ -26,7 +26,7 @@ public:
         
     std::ostringstream stream;
     stream << format(result);
-    std::cout<<"result : " << result.pretty()<<std::endl;
+
 
     if(result.id()!=ID_constant)
       throw error("expected constant");
@@ -94,7 +94,7 @@ public:
         
     std::ostringstream stream;
     stream << format(result);
-    std::cout<<"result : " << result.pretty()<<std::endl;
+    // std::cout<<"result : " << result.pretty()<<std::endl;
 
     if(result == false_exprt())
       return false;
