@@ -1,6 +1,6 @@
 ;https://connect.collins.co.uk/repo1/Content/Live/JI/Leckie/GCSE-Maths-Student-Book-Edexcel-Final-03-MarSAMPLEBOOK/wrapper/index.html?r=t#23
 
-;(declare-oracle-fun isSquare issquare (Int ) Bool)
+;(declare-oracle-fun isSquare (Int ) Bool issquare)
 
 ; a factor of 24 and a factor fo 18
 

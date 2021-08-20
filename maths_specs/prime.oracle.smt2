@@ -1,6 +1,6 @@
 
 
-(declare-oracle-fun isPrime isprime (Int ) Bool)
+(declare-oracle-fun isPrime  (Int ) Bool isprime)
 
 ; note that this will only say "unsat" or "unknown", should do unsat queries below
 

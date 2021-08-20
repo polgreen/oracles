@@ -1,7 +1,7 @@
 ;https://connect.collins.co.uk/repo1/Content/Live/JI/Leckie/GCSE-Maths-Student-Book-Edexcel-Final-03-MarSAMPLEBOOK/wrapper/index.html?r=t#23
 
 ;  a prime number that is one more than a square number
-(declare-oracle-fun isSquare issquare (Int ) Bool)
+(declare-oracle-fun isSquare (Int ) Bool issquare)
 (declare-oracle-fun isPrime primes (Int ) Bool)
 
 

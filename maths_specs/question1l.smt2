@@ -1,7 +1,7 @@
 ;https://connect.collins.co.uk/repo1/Content/Live/JI/Leckie/GCSE-Maths-Student-Book-Edexcel-Final-03-MarSAMPLEBOOK/wrapper/index.html?r=t#23
 
 ;  an odd triangular number that is a multiple of 7
-(declare-oracle-fun isTriangle istriangle (Int ) Bool)
+(declare-oracle-fun isTriangle (Int ) Bool istriangle)
 ;(declare-oracle-fun isPrime primes (Int ) Bool)
 
 

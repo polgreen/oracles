@@ -1,6 +1,5 @@
 ;https://connect.collins.co.uk/repo1/Content/Live/JI/Leckie/GCSE-Maths-Student-Book-Edexcel-Final-03-MarSAMPLEBOOK/wrapper/index.html?r=t#23
 
-;(declare-oracle-fun isPrime primes (Int ) Bool)
 
 (define-fun-rec isPrimeRec ((a Int) (b Int)) Bool
   (ite (> b (div a 2))

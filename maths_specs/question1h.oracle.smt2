@@ -1,7 +1,7 @@
 ;https://connect.collins.co.uk/repo1/Content/Live/JI/Leckie/GCSE-Maths-Student-Book-Edexcel-Final-03-MarSAMPLEBOOK/wrapper/index.html?r=t#23
 
 ;  a triangular number and a factor of 20
-(declare-oracle-fun isTriangle istriangle (Int ) Bool)
+(declare-oracle-fun isTriangle istriangle (Int ) Bool istriangle)
 
 (declare-fun n () Int)
 (assert (or (= n 12)(= n 8)(= n 13) (= n 17) (= n 15) (= n 21) (= n 9)(= n 10)(= n 18)(= n 14)(= n 16)(= n 6) ))

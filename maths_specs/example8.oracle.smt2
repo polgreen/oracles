@@ -1,6 +1,6 @@
 ;https://connect.collins.co.uk/repo1/Content/Live/JI/Leckie/GCSE-Maths-Student-Book-Edexcel-Final-03-MarSAMPLEBOOK/wrapper/index.html?r=t#23
 
-(declare-oracle-fun isPrime isprime (Int ) Bool)
+(declare-oracle-fun isPrime  (Int ) Bool isprime)
 
 
 (declare-fun factor1 () Int)
