@@ -5,7 +5,7 @@
 ; abusing pixel_oracle.sh both for 'correctness' and 'hints'
 
 ; correctness (verification)
-(declare-oracle-fun pixel_correct ./pixel_oracle_darker.sh ((-> (_ BitVec 8) (_ BitVec 8))) Bool)
+(declare-oracle-fun pixel_correct  ((-> (_ BitVec 8) (_ BitVec 8))) Bool ./pixel_oracle_darker.sh)
 
 (constraint (pixel_correct tweak))
 
