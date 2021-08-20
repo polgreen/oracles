@@ -2,93 +2,50 @@
 #include <Eigen/Dense>
 #include <Eigen/Eigenvalues> 
 #include <complex>
+#include <string>
+#include "../utility_parser/utility_parser.h"
+#include <util/cmdline.h>
 
+#define CBMC_ORACLE_OPTIONS ""
 
+void help(std::ostream &out)
+{
+  out << "no help yet\n";
+}
 
 int main(int argc, const char *argv[])
 {
+	cmdlinet cmdline;
+  if(cmdline.parse(argc, argv, CBMC_ORACLE_OPTIONS))
+  {
+    std::cerr << "Usage error\n";
+    help(std::cerr);
+    return 1;
+  }
 
-	if(argc!=10)
-	{
-		std::cout<<"Expected 9 numeric entries to a 3x3 matrix"<<std::endl;
-		return 1;
-	}
+	std::vector<double> inputs;
 
-	double x00, x01, x02, x10, x11, x12, x20, x21, x22;
+  for(const auto &arg : cmdline.args)
+  {
+    std::istringstream arg_stream(arg);
+    auto arg_parsed = float2double(arg_stream);
+    inputs.push_back(arg_parsed);
+  }
 
-	// arg 1 is x
-	std::istringstream ssX00(argv[1]);
-	if(!(ssX00 >> x00))
-	{
-		std::cout<<"false"<<std::endl;
-		return 10;
-	}
-
-	std::istringstream ssX01(argv[2]);
-	if(!(ssX01 >> x01))
-	{
-		std::cout<<"false"<<std::endl;
-		return 10;
-	}
-
-	std::istringstream ssX02(argv[3]);
-	if(!(ssX02 >> x02))
-	{
-		std::cout<<"false"<<std::endl;
-		return 10;
-	}
-
-	std::istringstream ssX10(argv[4]);
-	if(!(ssX10 >> x10))
-	{
-		std::cout<<"false"<<std::endl;
-		return 10;
-	}
-
-	std::istringstream ssX11(argv[5]);
-	if(!(ssX11 >> x11))
-	{
-		std::cout<<"false"<<std::endl;
-		return 10;
-	}
-
-	std::istringstream ssX12(argv[6]);
-	if(!(ssX12 >> x12))
-	{
-		std::cout<<"false"<<std::endl;
-		return 10;
-	}
-	std::istringstream ssX20(argv[7]);
-	if(!(ssX20 >> x20))
-	{
-		std::cout<<"false"<<std::endl;
-		return 10;
-	}
-
-	std::istringstream ssX21(argv[8]);
-	if(!(ssX21 >> x21))
-	{
-		std::cout<<"false"<<std::endl;
-		return 10;
-	}
-
-	std::istringstream ssX22(argv[9]);
-	if(!(ssX22 >> x02))
-	{
-		std::cout<<"false"<<std::endl;
-		return 10;
-	}
+  if(inputs.size()!=9)
+    std::cout<<"Expected 9 numeric entries to a 3x3 matrix, got " << inputs.size()<<" inputs "<<std::endl;
 
 	Eigen::MatrixXd m(3,3);
-	m(0,0)=x00;
-	m(0,1)=x01;
-	m(0,2)=x02;
-	m(1,0)=x10;
-	m(1,1)=x11;
-	m(1,2)=x12;
-	m(2,0)=x20;
-	m(2,1)=x21;
-	m(2,2)=x22;
+	m(0,0)=inputs[0];
+	m(0,1)=inputs[1];
+	m(0,2)=inputs[2];
+	m(1,0)=inputs[3];
+	m(1,1)=inputs[4];
+	m(1,2)=inputs[5];
+	m(2,0)=inputs[6];
+	m(2,1)=inputs[7];
+	m(2,2)=inputs[8];
+
 
 	
 	Eigen::EigenSolver<Eigen::MatrixXd> es(m);
