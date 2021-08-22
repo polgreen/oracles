@@ -8,50 +8,50 @@
 
 
 ; float point representation of spec
-(define-fun A00 () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven A00r))
-(define-fun A01 () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven A01r))
-(define-fun A02 () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven A02r))
-(define-fun A10 () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven A10r))
-(define-fun A11 () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven A11r))
-(define-fun A12 () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven A12r))
-(define-fun A20 () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven A20r))
-(define-fun A21 () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven A21r))
-(define-fun A22 () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven A22r))
-(define-fun B0 () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven B0r))
-(define-fun B1 () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven B1r))
-(define-fun B2 () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven B2r))
+(define-fun A00 () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven A00r))
+(define-fun A01 () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven A01r))
+(define-fun A02 () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven A02r))
+(define-fun A10 () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven A10r))
+(define-fun A11 () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven A11r))
+(define-fun A12 () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven A12r))
+(define-fun A20 () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven A20r))
+(define-fun A21 () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven A21r))
+(define-fun A22 () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven A22r))
+(define-fun B0 () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven B0r))
+(define-fun B1 () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven B1r))
+(define-fun B2 () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven B2r))
 
-(define-fun upper () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven upperr))
-(define-fun lower () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven lowerr))
-(define-fun init_upper () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven init_upperr))
-(define-fun init_lower () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven init_lowerr))
-(define-fun inputupper () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven 10.0))
-(define-fun inputlower () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven (- 10.0)))
+(define-fun upper () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven upperr))
+(define-fun lower () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven lowerr))
+(define-fun init_upper () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven init_upperr))
+(define-fun init_lower () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven init_lowerr))
+(define-fun inputupper () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven 10.0))
+(define-fun inputlower () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven (- 10.0)))
 
 ; controller
-(synth-fun K0 () (_ FloatingPoint 5 11))
-(synth-fun K1 () (_ FloatingPoint 5 11))
-(synth-fun K2 () (_ FloatingPoint 5 11))
+(synth-fun K0 () (_ FloatingPoint 8 24))
+(synth-fun K1 () (_ FloatingPoint 8 24))
+(synth-fun K2 () (_ FloatingPoint 8 24))
 
 ; #### is stable #### 
-(define-fun AminusBK00 () (_ FloatingPoint 5 11) (fp.sub roundNearestTiesToEven A00 (fp.mul roundNearestTiesToEven B0 K0)))
-(define-fun AminusBK01 () (_ FloatingPoint 5 11) (fp.sub roundNearestTiesToEven A01 (fp.mul roundNearestTiesToEven B0 K1)))
-(define-fun AminusBK02 () (_ FloatingPoint 5 11) (fp.sub roundNearestTiesToEven A02 (fp.mul roundNearestTiesToEven B0 K2)))
-(define-fun AminusBK10 () (_ FloatingPoint 5 11) (fp.sub roundNearestTiesToEven A10 (fp.mul roundNearestTiesToEven B1 K0)))
-(define-fun AminusBK11 () (_ FloatingPoint 5 11) (fp.sub roundNearestTiesToEven A11 (fp.mul roundNearestTiesToEven B1 K1)))
-(define-fun AminusBK12 () (_ FloatingPoint 5 11) (fp.sub roundNearestTiesToEven A12 (fp.mul roundNearestTiesToEven B1 K2)))
-(define-fun AminusBK20 () (_ FloatingPoint 5 11) (fp.sub roundNearestTiesToEven A20 (fp.mul roundNearestTiesToEven B2 K0)))
-(define-fun AminusBK21 () (_ FloatingPoint 5 11) (fp.sub roundNearestTiesToEven A21 (fp.mul roundNearestTiesToEven B2 K1)))
-(define-fun AminusBK22 () (_ FloatingPoint 5 11) (fp.sub roundNearestTiesToEven A21 (fp.mul roundNearestTiesToEven B2 K2)))
+(define-fun AminusBK00 () (_ FloatingPoint 8 24) (fp.sub roundNearestTiesToEven A00 (fp.mul roundNearestTiesToEven B0 K0)))
+(define-fun AminusBK01 () (_ FloatingPoint 8 24) (fp.sub roundNearestTiesToEven A01 (fp.mul roundNearestTiesToEven B0 K1)))
+(define-fun AminusBK02 () (_ FloatingPoint 8 24) (fp.sub roundNearestTiesToEven A02 (fp.mul roundNearestTiesToEven B0 K2)))
+(define-fun AminusBK10 () (_ FloatingPoint 8 24) (fp.sub roundNearestTiesToEven A10 (fp.mul roundNearestTiesToEven B1 K0)))
+(define-fun AminusBK11 () (_ FloatingPoint 8 24) (fp.sub roundNearestTiesToEven A11 (fp.mul roundNearestTiesToEven B1 K1)))
+(define-fun AminusBK12 () (_ FloatingPoint 8 24) (fp.sub roundNearestTiesToEven A12 (fp.mul roundNearestTiesToEven B1 K2)))
+(define-fun AminusBK20 () (_ FloatingPoint 8 24) (fp.sub roundNearestTiesToEven A20 (fp.mul roundNearestTiesToEven B2 K0)))
+(define-fun AminusBK21 () (_ FloatingPoint 8 24) (fp.sub roundNearestTiesToEven A21 (fp.mul roundNearestTiesToEven B2 K1)))
+(define-fun AminusBK22 () (_ FloatingPoint 8 24) (fp.sub roundNearestTiesToEven A21 (fp.mul roundNearestTiesToEven B2 K2)))
 
 
-(declare-var eig  (_ FloatingPoint 5 11))
-(define-fun four () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven 4.0))
-(define-fun two () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven 2.0))
-(define-fun one () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven 1.0))
-(define-fun zero () (_ FloatingPoint 5 11) ((_ to_fp 5 11) roundNearestTiesToEven 0.0))
+(declare-var eig  (_ FloatingPoint 8 24))
+(define-fun four () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven 4.0))
+(define-fun two () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven 2.0))
+(define-fun one () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven 1.0))
+(define-fun zero () (_ FloatingPoint 8 24) ((_ to_fp 5 11) roundNearestTiesToEven 0.0))
 
-(define-fun determinant_is_zero ((eig0 (_ FloatingPoint 5 11))) Bool
+(define-fun determinant_is_zero ((eig0 (_ FloatingPoint 8 24))) Bool
 (fp.eq zero
 (fp.add roundNearestTiesToEven (fp.mul roundNearestTiesToEven AminusBK00 (fp.mul roundNearestTiesToEven eig0 eig0));m00*x0^2
 (fp.add roundNearestTiesToEven (fp.mul roundNearestTiesToEven AminusBK11 (fp.mul roundNearestTiesToEven eig0 eig0));+ m11*x0^2
@@ -92,22 +92,22 @@
 ; ####  assert unrolling is safe using floating point####
 
 ; initial states
-(declare-var x0  (_ FloatingPoint 5 11))
-(declare-var x1  (_ FloatingPoint 5 11))
-(declare-var x2  (_ FloatingPoint 5 11))
+(declare-var x0  (_ FloatingPoint 8 24))
+(declare-var x1  (_ FloatingPoint 8 24))
+(declare-var x2  (_ FloatingPoint 8 24))
 ; step states
-(declare-var x0step1  (_ FloatingPoint 5 11))
-(declare-var x1step1  (_ FloatingPoint 5 11))
-(declare-var x2step1  (_ FloatingPoint 5 11))
-(declare-var x0step2  (_ FloatingPoint 5 11))
-(declare-var x1step2 (_ FloatingPoint 5 11))
-(declare-var x2step2 (_ FloatingPoint 5 11))
-(declare-var x0step3 (_ FloatingPoint 5 11))
-(declare-var x1step3 (_ FloatingPoint 5 11))
-(declare-var x2step3 (_ FloatingPoint 5 11))
+(declare-var x0step1  (_ FloatingPoint 8 24))
+(declare-var x1step1  (_ FloatingPoint 8 24))
+(declare-var x2step1  (_ FloatingPoint 8 24))
+(declare-var x0step2  (_ FloatingPoint 8 24))
+(declare-var x1step2 (_ FloatingPoint 8 24))
+(declare-var x2step2 (_ FloatingPoint 8 24))
+(declare-var x0step3 (_ FloatingPoint 8 24))
+(declare-var x1step3 (_ FloatingPoint 8 24))
+(declare-var x2step3 (_ FloatingPoint 8 24))
 
 
-(define-fun unroll ((x0 (_ FloatingPoint 5 11)) (x1 (_ FloatingPoint 5 11))(x2 (_ FloatingPoint 5 11))(x0step1 (_ FloatingPoint 5 11) ) (x1step1 (_ FloatingPoint 5 11))(x2step1 (_ FloatingPoint 5 11)) ) Bool
+(define-fun unroll ((x0 (_ FloatingPoint 8 24)) (x1 (_ FloatingPoint 8 24))(x2 (_ FloatingPoint 8 24))(x0step1 (_ FloatingPoint 8 24) ) (x1step1 (_ FloatingPoint 8 24))(x2step1 (_ FloatingPoint 8 24)) ) Bool
 (and
 (= x0step1 (fp.add roundNearestTiesToEven (fp.mul roundNearestTiesToEven AminusBK00 x0) 
 	(fp.add roundNearestTiesToEven
@@ -125,11 +125,11 @@
 ))
 
 ; states are safe
-(define-fun bounds_check ((x0 (_ FloatingPoint 5 11)) (x1 (_ FloatingPoint 5 11))(x2 (_ FloatingPoint 5 11))) Bool
+(define-fun bounds_check ((x0 (_ FloatingPoint 8 24)) (x1 (_ FloatingPoint 8 24))(x2 (_ FloatingPoint 8 24))) Bool
 	(and (fp.lt x0 upper) (fp.gt x0 lower) (fp.lt x1 upper)(fp.gt x1 lower)(fp.lt x2 upper)(fp.gt x2 lower)))
 
 ; states are corner cases of init box
-(define-fun init ((x0 (_ FloatingPoint 5 11)) (x1 (_ FloatingPoint 5 11)) (x2 (_ FloatingPoint 5 11)) ) Bool
+(define-fun init ((x0 (_ FloatingPoint 8 24)) (x1 (_ FloatingPoint 8 24)) (x2 (_ FloatingPoint 8 24)) ) Bool
 	(and (or (= x0 init_upper) (= x0 init_lower))(or (= x1 init_upper)(= x1 init_lower))(or (= x2 init_upper)(= x2 init_lower))  ))
 
 

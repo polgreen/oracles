@@ -15,7 +15,8 @@ void help(std::ostream &out)
 
 int main(int argc, const char *argv[])
 {
-	cmdlinet cmdline;
+  cmdlinet cmdline;
+  // std::cout<<"START MAIN "<< std::endl;
   if(cmdline.parse(argc, argv, CBMC_ORACLE_OPTIONS))
   {
     std::cerr << "Usage error\n";
@@ -24,16 +25,22 @@ int main(int argc, const char *argv[])
   }
 
 	std::vector<double> inputs;
+	// std::cout<<"parsing arguments "<< std::endl;
 
+  // std::cout<<"number of args "<< cmdline.args.size()<<std::endl;
   for(const auto &arg : cmdline.args)
   {
     std::istringstream arg_stream(arg);
+    // std::cout<<"parsing argument "<< arg_stream.str()<<std::endl;
     auto arg_parsed = float2double(arg_stream);
     inputs.push_back(arg_parsed);
   }
 
   if(inputs.size()!=4)
+  {
     std::cout<<"Expected 4 numeric entries to a 2x2 matrix, got " << inputs.size()<<" inputs "<<std::endl;
+    return -1;
+  }
 
 	Eigen::MatrixXd m(2,2);
 	m(0,0)=inputs[0];

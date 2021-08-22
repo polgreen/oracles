@@ -45,7 +45,7 @@
 
 
 
-(declare-oracle-fun isStable isstable ((_ FloatingPoint 8 24)(_ FloatingPoint 8 24)(_ FloatingPoint 8 24)(_ FloatingPoint 8 24)) Bool)
+(declare-oracle-fun isStable  ((_ FloatingPoint 8 24)(_ FloatingPoint 8 24)(_ FloatingPoint 8 24)(_ FloatingPoint 8 24)) Bool isstable)
 (constraint (isStable AminusBK00 AminusBK01 AminusBK10 AminusBK11))
 
 (constraint (and (not (fp.isNaN AminusBK00))(fp.lt AminusBK00 inputupper)(fp.gt AminusBK00 inputlower)))

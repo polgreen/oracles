@@ -21,11 +21,20 @@ public:
   {
     const symbol_tablet symbol_table;
     const namespacet ns(symbol_table);
-    exprt result = expression();
+    exprt result;
+    try{
+    result = expression();
     simplify(result, ns);
+    }
+    catch(...)
+    {
+      std::cout<<"caught exception"<<std::endl;
+      result = nil_exprt();
+    }
         
     std::ostringstream stream;
     stream << format(result);
+    // std::cout<<"result is "<< result.pretty()<<std::endl;
 
 
     if(result.id()!=ID_constant)
@@ -110,5 +119,15 @@ public:
 
 double float2double(std::istream &in)
 {
-  return utility_parsert(in).float2double();
+  double result;
+  try {
+
+    result = utility_parsert(in).float2double();
+    return result;
+  }
+  catch(...)
+  {
+    // std::cout<<"caught exception"<<std::endl;
+    return 0;
+  }
 }
