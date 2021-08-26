@@ -22,15 +22,8 @@ public:
     const symbol_tablet symbol_table;
     const namespacet ns(symbol_table);
     exprt result;
-    try{
     result = expression();
     simplify(result, ns);
-    }
-    catch(...)
-    {
-      std::cout<<"caught exception"<<std::endl;
-      result = nil_exprt();
-    }
         
     std::ostringstream stream;
     stream << format(result);
