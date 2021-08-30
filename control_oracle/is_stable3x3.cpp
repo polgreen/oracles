@@ -11,7 +11,7 @@ int main(int argc, const char *argv[])
 {
   if(argc!=5)
   {
-    std::cout<<"Expected 4 numeric entries to a 2x2 matrix"<<std::endl;
+    std::cout<<"Expected 9 numeric entries to a 3x3 matrix"<<std::endl;
     return 1;
   }
 
