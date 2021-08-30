@@ -17,7 +17,7 @@ int main(int argc, const char *argv[])
 
 	std::vector<double> inputs;
 
-  for(unsigned int i=1; i<argc; i++)
+  for(int i=1; i<argc; i++)
   {
     std::istringstream arg_stream(argv[i]);
     try{
