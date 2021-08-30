@@ -9,7 +9,7 @@
 
 int main(int argc, const char *argv[])
 {
-  if(argc!=5)
+  if(argc!=10)
   {
     std::cout<<"Expected 9 numeric entries to a 3x3 matrix"<<std::endl;
     return 1;
