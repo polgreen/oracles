@@ -6,30 +6,32 @@
 #include "../utility_parser/utility_parser.h"
 #include <util/cmdline.h>
 
-#define CBMC_ORACLE_OPTIONS ""
-
-void help(std::ostream &out)
-{
-  out << "no help yet\n";
-}
 
 int main(int argc, const char *argv[])
 {
-	cmdlinet cmdline;
-  if(cmdline.parse(argc, argv, CBMC_ORACLE_OPTIONS))
+  if(argc!=5)
   {
-    std::cerr << "Usage error\n";
-    help(std::cerr);
+    std::cout<<"Expected 4 numeric entries to a 2x2 matrix"<<std::endl;
     return 1;
   }
 
 	std::vector<double> inputs;
 
-  for(const auto &arg : cmdline.args)
+  for(unsigned int i=1; i<argc; i++)
   {
-    std::istringstream arg_stream(arg);
+    std::istringstream arg_stream(argv[i]);
+    try{
     auto arg_parsed = float2double(arg_stream);
+    // std::cout<<"arg string was "<< arg_stream.str()<<std::endl;
     inputs.push_back(arg_parsed);
+    // std::cout<<"arg result " << inputs[i-1]<<std::endl;
+  }
+  catch(...)
+  {
+    std::cout<<"false"<<std::endl;
+    return 0;
+  }
+    
   }
 
   if(inputs.size()!=9)
