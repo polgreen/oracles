@@ -2,6 +2,7 @@
 
 #include <solvers/smt2/smt2_parser.h>
 #include <solvers/smt2/smt2_format.h>
+#include <iostream>
 
 class smt2_define_fun_parsert:public smt2_parsert
 {
@@ -39,37 +40,67 @@ public:
       expand_let_expressions(op);
   }
 
+
+
   define_fun_resultt define_fun()
   {
+    bool isLambda=false;
     if(next_token() != smt2_tokenizert::OPEN)
       throw error("expected (define-fun");
 
-    if(next_token() != smt2_tokenizert::SYMBOL ||
-       smt2_tokenizer.get_buffer() != "define-fun")
-      throw error("expected (define-fun");
-
     if(next_token() != smt2_tokenizert::SYMBOL)
-      throw error("expected a symbol after define-fun");
+      throw error("expected symbol");
 
-    // save the renaming map
-    // renaming_mapt old_renaming_map = renaming_map;
+    auto tmpbuffer = smt2_tokenizer.get_buffer();
+
+    if(tmpbuffer=="lambda")
+      isLambda=true;
+
+    if(tmpbuffer != "define-fun" && !isLambda)
+      throw error("expected (define-fun or (lambda");
 
     define_fun_resultt result;
+    if(!isLambda)
+    {
+      if(next_token() != smt2_tokenizert::SYMBOL)
+        throw error("expected a symbol after define-fun");
+      result.id = smt2_tokenizer.get_buffer();
+      const auto signature = function_signature_definition();
+      result.type = signature.type;
+      result.parameters = signature.parameters;
+      // put the parameters into the scope and take care of hiding
+      std::vector<std::pair<irep_idt, idt>> hidden_ids;
 
-    result.id = smt2_tokenizer.get_buffer();
-
-    const auto signature = function_signature_definition();
-    result.type = signature.type;
-    result.parameters = signature.parameters;
-    result.body = expression();
+      for(const auto &pair : signature.ids_and_types())
+      {
+        auto insert_result =
+          id_map.insert({pair.first, idt{idt::PARAMETER, pair.second}});
+        if(!insert_result.second) // already there
+        {
+          auto &id_entry = *insert_result.first;
+          hidden_ids.emplace_back(id_entry.first, std::move(id_entry.second));
+          id_entry.second = idt{idt::PARAMETER, pair.second};
+        }
+      }
+      result.body = expression();
+    }
+    else
+    {
+      result.id = "tweak";
+      const auto lambda = lambda_definition();
+      result.type = lambda.first.type;
+      result.parameters = lambda.first.parameters;
+      result.body = lambda.second;
+    }
+    
     expand_let_expressions(result.body);
 
     // restore renamings
 
     // check type of body
-    if(signature.type.id() == ID_mathematical_function)
+    if(result.type.id() == ID_mathematical_function)
     {
-      const auto &f_signature = to_mathematical_function_type(signature.type);
+      const auto &f_signature = to_mathematical_function_type(result.type);
       if(result.body.type() != f_signature.codomain())
       {
         throw error() << "type mismatch in function definition: expected '"
@@ -77,10 +108,10 @@ public:
                       << smt2_format(result.body.type()) << '\'';
       }
     }
-    else if(result.body.type() != signature.type)
+    else if(result.body.type() != result.type)
     {
       throw error() << "type mismatch in function definition: expected '"
-                    << smt2_format(signature.type) << "' but got '"
+                    << smt2_format(result.type) << "' but got '"
                     << smt2_format(result.body.type()) << '\'';
     }
 
