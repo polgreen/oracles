@@ -2,7 +2,7 @@
 
 # turn the given pixel processing function into C
 
-./smt2c "$1" > pixel_oracle.c
+smt2c "$1" > pixel_oracle.c
 
 cat << EOM >> pixel_oracle.c
 unsigned char *stbi_load(char const *filename, int *x, int *y, int *channels_in_file, int desired_channels);

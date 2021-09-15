@@ -1,0 +1,9 @@
+bioreact_ss_disc7.sl.oracle.sl:5.11: No set-logic command was given before this point.
+bioreact_ss_disc7.sl.oracle.sl:5.11: cvc5 will make all theories available.
+bioreact_ss_disc7.sl.oracle.sl:5.11: Consider setting a stricter logic for (likely) better performance.
+bioreact_ss_disc7.sl.oracle.sl:5.11: To suppress this warning in the future use (set-logic ALL).
+(
+(define-fun K0 () (_ FloatingPoint 8 24) (fp #b0 #b00000000 #b00000000000000000000000))
+(define-fun K1 () (_ FloatingPoint 8 24) (fp #b1 #b00000000 #b00000000000000000000000))
+)
+        1.69 real         1.60 user         0.05 sys

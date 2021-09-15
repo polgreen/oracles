@@ -22,8 +22,15 @@ public:
     const symbol_tablet symbol_table;
     const namespacet ns(symbol_table);
     exprt result;
+    try{
     result = expression();
     simplify(result, ns);
+    }
+    catch(...)
+    {
+      std::cout<<"caught exception"<<std::endl;
+      result = nil_exprt();
+    }
         
     std::ostringstream stream;
     stream << format(result);
@@ -41,6 +48,49 @@ public:
       ieee_floatt float_result;
       float_result.from_expr(to_constant_expr(result));
       return float_result.to_double();
+    }
+
+    if(result.type().id()==ID_unsignedbv || result.type().id()==ID_signedbv)
+    {
+      mp_integer result_val;
+      to_integer(to_constant_expr(result), result_val);
+      return std::stod(integer2string(result_val, 10u));
+    }
+
+    return std::stod(id2string(to_constant_expr(result).get_value()));
+  }
+
+    double float2float()
+  {
+    const symbol_tablet symbol_table;
+    const namespacet ns(symbol_table);
+    exprt result;
+    try{
+    result = expression();
+    simplify(result, ns);
+    }
+    catch(...)
+    {
+      std::cout<<"caught exception"<<std::endl;
+      result = nil_exprt();
+    }
+        
+    std::ostringstream stream;
+    stream << format(result);
+    // std::cout<<"result is "<< result.pretty()<<std::endl;
+
+
+    if(result.id()!=ID_constant)
+      throw error("expected constant");
+
+    if(result.type().id()==ID_bool)
+      throw error("expected numeric value, not bool");
+
+    if(result.type().id()==ID_floatbv)
+    {
+      ieee_floatt float_result;
+      float_result.from_expr(to_constant_expr(result));
+      return float_result.to_float();
     }
 
     if(result.type().id()==ID_unsignedbv || result.type().id()==ID_signedbv)
@@ -109,6 +159,22 @@ public:
 
 };
 
+
+float float2float(std::istream &in)
+{
+  float result;
+  try {
+
+    result = utility_parsert(in).float2float();
+    return result;
+  }
+  catch(...)
+  {
+    // std::cout<<"caught exception"<<std::endl;
+    return 0;
+  }
+
+}
 
 double float2double(std::istream &in)
 {

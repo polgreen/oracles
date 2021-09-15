@@ -2,7 +2,7 @@
 
 # turn the given pixel processing function into C
 
-./smt2c "$1" > pixel_oracle.c
+smt2c "$1" > pixel_oracle.c
 
 cat << EOM >> pixel_oracle.c
 
@@ -45,6 +45,7 @@ int main()
     {
       // they differ; report the expected mapping
       printf("false (_ bv%d 8) (_ bv%d 8)\n", data_src[index], data_target[index]);
+      return 1;
     }
   }
 

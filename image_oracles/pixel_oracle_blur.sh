@@ -2,7 +2,7 @@
 
 # turn the given pixel processing function into C
 
-./smt2c "$1" > pixel_oracle.c
+smt2c "$1" > pixel_oracle.c
 
 cat << EOM >> pixel_oracle.c
 
