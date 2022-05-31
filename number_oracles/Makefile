@@ -1,8 +1,10 @@
 all: issquare istriangle
 
-issquare: isSquare.cpp
+issquare: 
+	g++ isSquare.cpp -o issquare
 
-istriangle: isTriangle.cpp
+istriangle: 
+	g++ isTriangle.cpp -o istriangle
 
 clean :
 	rm issquare istriangle

@@ -1,12 +1,17 @@
 all: max-io max-neg max-pos max-corr
 
-max-io: max-io.cpp
+max-io: 
+	g++ max-io.cpp -o max-io
 
-max-neg: max-neg.cpp
+max-neg: 
+	g++ max-neg.cpp -o max-neg
 
-max-pos: max-pos.cpp
+max-pos: 
+	g++ max-pos.cpp -o max-pos
 
-max-corr: max-corr.cpp	
+
+max-corr: 
+	g++ max-corr.cpp -o max-corr	
 
 clean :
 	rm max-io max-neg max-pos max-corr
